@@ -18,307 +18,63 @@
             --border: #e2e8f0;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        h1, h2 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        input[type="email"],
-        input[type="password"],
-        input[type="file"] {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-            outline: none;
-        }
-
-        input:focus {
-            border-color: var(--primary);
-        }
-
-        button {
-            width: 100%;
-            padding: 0.875rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s, opacity 0.2s;
-        }
-
-        button:active {
-            transform: scale(0.98);
-        }
-
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover:not(:disabled) {
-            background-color: var(--primary-hover);
-        }
-
-        .btn-danger {
-            background-color: var(--danger);
-            color: white;
-            width: auto;
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-        }
-
-        .btn-danger:hover:not(:disabled) {
-            background-color: var(--danger-hover);
-        }
-
-        .btn-secondary {
-            background-color: var(--bg);
-            color: var(--text);
-            border: 2px solid var(--border);
-            margin-top: 0.5rem;
-        }
-
-        .btn-secondary:hover:not(:disabled) {
-            background-color: var(--border);
-        }
-
-        .error-msg {
-            color: var(--danger);
-            font-size: 0.875rem;
-            text-align: center;
-            margin-top: 1rem;
-            min-height: 1.25rem;
-        }
-
-        .success-msg {
-            color: var(--success);
-            font-size: 0.875rem;
-            text-align: center;
-            margin-top: 1rem;
-            min-height: 1.25rem;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* Dashboard Styles */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .badge-admin {
-            background-color: #dbeafe;
-            color: #1e40af;
-        }
-
-        .badge-local {
-            background-color: #dcfce7;
-            color: #166534;
-        }
-
-        .upload-section {
-            background-color: #f1f5f9;
-            border: 2px dashed #cbd5e1;
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        /* Barra de progreso */
-        .progress-container {
-            width: 100%;
-            background-color: #e2e8f0;
-            border-radius: 9999px;
-            height: 12px;
-            margin-top: 1rem;
-            overflow: hidden;
-            display: none;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background-color: var(--primary);
-            width: 0%;
-            transition: width 0.3s ease;
-            border-radius: 9999px;
-        }
-
-        .progress-text {
-            font-size: 0.875rem;
-            color: var(--text-light);
-            margin-top: 0.5rem;
-            font-weight: 600;
-            display: none;
-        }
-
-        .file-list {
-            list-style: none;
-        }
-
-        .file-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin-bottom: 0.75rem;
-            background-color: white;
-            transition: box-shadow 0.2s;
-        }
-
-        .file-item:hover {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .file-info {
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            flex: 1;
-            margin-right: 1rem;
-        }
-
-        .file-name {
-            font-weight: 600;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .file-date {
-            font-size: 0.75rem;
-            color: var(--text-light);
-        }
-
-        .file-actions {
-            display: flex;
-            gap: 0.5rem;
-            flex-shrink: 0;
-        }
-
-        .btn-download {
-            background-color: var(--success);
-            color: white;
-            width: auto;
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-download:hover {
-            background-color: #15803d;
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 1rem;
-            height: 1rem;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-            margin-right: 0.5rem;
-            vertical-align: middle;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .container { background: var(--card-bg); border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); width: 100%; max-width: 600px; padding: 2rem; }
+        h1, h2 { text-align: center; margin-bottom: 1.5rem; color: var(--text); }
+        .form-group { margin-bottom: 1.25rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: var(--text-light); }
+        input[type="email"], input[type="password"], input[type="file"] { width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--border); border-radius: 8px; font-size: 1rem; outline: none; }
+        input:focus { border-color: var(--primary); }
+        button { width: 100%; padding: 0.875rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        button:active { transform: scale(0.98); }
+        button:disabled { opacity: 0.6; cursor: not-allowed; }
+        .btn-primary { background-color: var(--primary); color: white; }
+        .btn-primary:hover:not(:disabled) { background-color: var(--primary-hover); }
+        .btn-danger { background-color: var(--danger); color: white; width: auto; padding: 0.5rem 1rem; font-size: 0.875rem; }
+        .btn-secondary { background-color: var(--bg); color: var(--text); border: 2px solid var(--border); margin-top: 0.5rem; }
+        .btn-secondary:hover:not(:disabled) { background-color: var(--border); }
+        .btn-test { background-color: #f59e0b; color: white; margin-top: 0.5rem; font-size: 0.9rem; }
+        .error-msg { color: var(--danger); font-size: 0.875rem; text-align: center; margin-top: 1rem; min-height: 1.25rem; white-space: pre-wrap; }
+        .success-msg { color: var(--success); font-size: 0.875rem; text-align: center; margin-top: 1rem; }
+        .hidden { display: none !important; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border); }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+        .badge-admin { background-color: #dbeafe; color: #1e40af; }
+        .badge-local { background-color: #dcfce7; color: #166534; }
+        .upload-section { background-color: #f1f5f9; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 1.5rem; text-align: center; margin-bottom: 2rem; }
+        .progress-container { width: 100%; background-color: #e2e8f0; border-radius: 9999px; height: 16px; margin-top: 1rem; overflow: hidden; display: none; }
+        .progress-bar { height: 100%; background-color: var(--primary); width: 0%; transition: width 0.3s ease; border-radius: 9999px; }
+        .progress-text { font-size: 0.875rem; color: var(--text-light); margin-top: 0.5rem; font-weight: 600; display: none; }
+        .file-list { list-style: none; }
+        .file-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.75rem; background-color: white; }
+        .file-info { display: flex; flex-direction: column; overflow: hidden; flex: 1; margin-right: 1rem; }
+        .file-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .file-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+        .btn-download { background-color: var(--success); color: white; width: auto; padding: 0.5rem 1rem; font-size: 0.875rem; text-decoration: none; border-radius: 8px; border: none; }
+        .spinner { display: inline-block; width: 1rem; height: 1rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: white; animation: spin 1s linear infinite; margin-right: 0.5rem; vertical-align: middle; }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
-    <!-- Sección de Login -->
     <div id="login-container" class="container">
         <h1>🔐 Acceso al Sistema</h1>
         <form id="login-form">
             <div class="form-group">
                 <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" required placeholder="ej. local@local.es">
+                <input type="email" id="email" required placeholder="local@local.es o administrador@administrador.es">
             </div>
             <div class="form-group">
                 <label for="password">Contraseña</label>
                 <input type="password" id="password" required placeholder="••••••••">
             </div>
             <button type="submit" class="btn-primary" id="login-btn">Iniciar Sesión</button>
-            <button type="button" class="btn-secondary" id="register-btn">Registrarse (Solo cuentas autorizadas)</button>
+            <button type="button" class="btn-secondary" id="register-btn">Registrarse</button>
             <div class="error-msg" id="login-error"></div>
         </form>
     </div>
 
-    <!-- Sección de la Aplicación (Dashboard) -->
     <div id="app-container" class="container hidden">
         <div class="header">
             <div>
@@ -331,59 +87,46 @@
             </div>
         </div>
 
-        <!-- Sección de Subida (Solo Administrador) -->
         <div id="admin-section" class="upload-section hidden">
             <h3 style="margin-bottom: 1rem;">📤 Subir Nuevo Archivo</h3>
+            
+            <!-- Botón de diagnóstico -->
+            <button id="test-connection-btn" class="btn-test">🔍 Probar Conexión a Storage</button>
+            <div id="test-result" class="error-msg" style="margin-bottom: 1rem;"></div>
+
             <div class="form-group">
                 <input type="file" id="file-input">
             </div>
             <button id="upload-btn" class="btn-primary">Subir Archivo</button>
             
-            <!-- Barra de progreso -->
             <div class="progress-container" id="progress-container">
                 <div class="progress-bar" id="progress-bar"></div>
             </div>
-            <div class="progress-text" id="progress-text">Preparando subida...</div>
+            <div class="progress-text" id="progress-text">Preparando...</div>
             
             <div class="error-msg" id="upload-error"></div>
             <div class="success-msg" id="upload-success"></div>
         </div>
 
-        <!-- Lista de Archivos -->
         <h3 style="margin-bottom: 1rem;">📁 Archivos Disponibles</h3>
-        <ul id="file-list" class="file-list">
-            <!-- Los archivos se cargarán aquí dinámicamente -->
-        </ul>
+        <ul id="file-list" class="file-list"></ul>
         <div id="loading-files" style="text-align: center; color: var(--text-light); padding: 2rem;">
-            <div class="spinner" style="border-top-color: var(--primary); width: 1.5rem; height: 1.5rem; border-color: #e2e8f0; border-top-color: var(--primary);"></div>
+            <div class="spinner" style="border-color: #e2e8f0; border-top-color: var(--primary); width: 1.5rem; height: 1.5rem;"></div>
             <p style="margin-top: 0.5rem;">Cargando archivos...</p>
         </div>
     </div>
 
-    <!-- Lógica de Firebase -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { 
-            getAuth, 
-            signInWithEmailAndPassword, 
-            createUserWithEmailAndPassword, 
-            signOut, 
-            onAuthStateChanged 
-        } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-        import { 
-            getStorage, 
-            ref, 
-            uploadBytesResumable, 
-            getDownloadURL, 
-            listAll, 
-            deleteObject 
-        } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getStorage, ref, uploadBytesResumable, getDownloadURL, listAll, deleteObject } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBmTBMyE7Y_LgSXH1SrmEv29DLYdxkyUEw",
             authDomain: "compartir-textos-app.firebaseapp.com",
             projectId: "compartir-textos-app",
-            storageBucket: "compartir-textos-app.firebasestorage.app",
+            // ⚠️ IMPORTANTE: Si tu bucket es .appspot.com, cámbialo aquí.
+            storageBucket: "compartir-textos-app.firebasestorage.app", 
             messagingSenderId: "705083380628",
             appId: "1:705083380628:web:ce267570e09e3ef1b27581",
             measurementId: "G-8GH28F0YJ0"
@@ -398,37 +141,25 @@
 
         const loginContainer = document.getElementById('login-container');
         const appContainer = document.getElementById('app-container');
-        const loginForm = document.getElementById('login-form');
         const loginError = document.getElementById('login-error');
         const uploadError = document.getElementById('upload-error');
         const uploadSuccess = document.getElementById('upload-success');
-        const userEmailSpan = document.getElementById('user-email');
-        const roleBadge = document.getElementById('role-badge');
         const adminSection = document.getElementById('admin-section');
         const fileList = document.getElementById('file-list');
         const loadingFiles = document.getElementById('loading-files');
-        
         const progressContainer = document.getElementById('progress-container');
         const progressBar = document.getElementById('progress-bar');
         const progressText = document.getElementById('progress-text');
+        const testResult = document.getElementById('test-result');
 
-        let currentUser = null;
         let isAdmin = false;
-        let currentUploadTask = null; // Para poder cancelar si fuera necesario
+        let uploadTask = null;
+        let uploadTimeout = null;
 
-        function isAllowedEmail(email) {
-            return ALLOWED_EMAILS.includes(email.toLowerCase().trim());
-        }
-
-        function setLoading(buttonId, isLoading, text) {
-            const btn = document.getElementById(buttonId);
-            if (isLoading) {
-                btn.disabled = true;
-                btn.innerHTML = `<span class="spinner"></span> ${text}`;
-            } else {
-                btn.disabled = false;
-                btn.innerHTML = text;
-            }
+        function setLoading(btnId, isLoading, text) {
+            const btn = document.getElementById(btnId);
+            btn.disabled = isLoading;
+            btn.innerHTML = isLoading ? `<span class="spinner"></span> ${text}` : text;
         }
 
         function resetProgressUI() {
@@ -437,16 +168,47 @@
             progressBar.style.width = '0%';
             document.getElementById('file-input').disabled = false;
             setLoading('upload-btn', false, 'Subir Archivo');
+            if (uploadTimeout) clearTimeout(uploadTimeout);
         }
 
-        loginForm.addEventListener('submit', async (e) => {
+        // --- DIAGNÓSTICO DE CONEXIÓN ---
+        document.getElementById('test-connection-btn').addEventListener('click', async () => {
+            testResult.textContent = 'Probando conexión...';
+            testResult.style.color = 'var(--text-light)';
+            try {
+                const testRef = ref(storage, 'test_connection.txt');
+                // Intentamos escribir un archivo tiny de prueba
+                const blob = new Blob(["Prueba de conexión"], { type: 'text/plain' });
+                await uploadBytesResumable(testRef, blob);
+                await deleteObject(testRef); // Lo borramos inmediatamente
+                testResult.textContent = '✅ ¡Conexión exitosa! Las reglas y el bucket están bien configurados.';
+                testResult.style.color = 'var(--success)';
+            } catch (error) {
+                console.error("Fallo de diagnóstico:", error);
+                let msg = '❌ Fallo de conexión.\n';
+                if (error.code === 'storage/unauthorized') {
+                    msg += 'Motivo: Las REGLAS DE FIREBASE STORAGE bloquean la escritura. Ve a Firebase Console > Storage > Rules y asegúrate de permitir write a tu email.';
+                } else if (error.code === 'storage/object-not-found' || error.message.includes('bucket')) {
+                    msg += 'Motivo: El nombre del "storageBucket" en la configuración es incorrecto o el bucket no existe.';
+                } else if (error.message.includes('NetworkError') || error.message.includes('CORS')) {
+                    msg += 'Motivo: Error de CORS o red. ¿Estás abriendo el archivo con doble clic (file://)? Usa un servidor local (VS Code Live Server) o súbelo a un hosting.';
+                } else {
+                    msg += `Motivo desconocido: ${error.message}`;
+                }
+                testResult.textContent = msg;
+                testResult.style.color = 'var(--danger)';
+            }
+        });
+
+        // --- LOGIN ---
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('email').value.trim().toLowerCase();
             const password = document.getElementById('password').value;
             loginError.textContent = '';
 
-            if (!isAllowedEmail(email)) {
-                loginError.textContent = '❌ Acceso denegado: Este correo no está autorizado.';
+            if (!ALLOWED_EMAILS.includes(email)) {
+                loginError.textContent = '❌ Acceso denegado: Correo no autorizado.';
                 return;
             }
 
@@ -454,12 +216,7 @@
             try {
                 await signInWithEmailAndPassword(auth, email, password);
             } catch (error) {
-                console.error(error);
-                if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
-                    loginError.textContent = '❌ Correo o contraseña incorrectos.';
-                } else {
-                    loginError.textContent = `❌ Error: ${error.message}`;
-                }
+                loginError.textContent = `❌ Error: ${error.message}`;
             } finally {
                 setLoading('login-btn', false, 'Iniciar Sesión');
             }
@@ -470,64 +227,37 @@
             const password = document.getElementById('password').value;
             loginError.textContent = '';
 
-            if (!isAllowedEmail(email)) {
-                loginError.textContent = '❌ Registro denegado: Solo se permiten las cuentas autorizadas.';
-                return;
-            }
-
-            if (password.length < 6) {
-                loginError.textContent = '❌ La contraseña debe tener al menos 6 caracteres.';
+            if (!ALLOWED_EMAILS.includes(email)) {
+                loginError.textContent = '❌ Registro denegado: Solo cuentas autorizadas.';
                 return;
             }
 
             setLoading('register-btn', true, 'Registrando...');
             try {
                 await createUserWithEmailAndPassword(auth, email, password);
-                alert(`✅ Cuenta ${email} creada exitosamente.`);
+                alert('✅ Cuenta creada. Ahora inicia sesión.');
             } catch (error) {
-                if (error.code === 'auth/email-already-in-use') {
-                    loginError.textContent = '⚠️ Esta cuenta ya existe. Por favor, inicia sesión.';
-                } else {
-                    loginError.textContent = `❌ Error al registrar: ${error.message}`;
-                }
+                loginError.textContent = `❌ Error: ${error.message}`;
             } finally {
-                setLoading('register-btn', false, 'Registrarse (Solo cuentas autorizadas)');
+                setLoading('register-btn', false, 'Registrarse');
             }
         });
 
-        document.getElementById('logout-btn').addEventListener('click', () => {
-            signOut(auth);
-        });
+        document.getElementById('logout-btn').addEventListener('click', () => signOut(auth));
 
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                if (!isAllowedEmail(user.email)) {
-                    await signOut(auth);
-                    loginError.textContent = '❌ Sesión cerrada: Cuenta no autorizada.';
-                    return;
-                }
-
-                currentUser = user;
+        onAuthStateChanged(auth, (user) => {
+            if (user && ALLOWED_EMAILS.includes(user.email.toLowerCase())) {
                 isAdmin = (user.email.toLowerCase() === ADMIN_EMAIL);
-
                 loginContainer.classList.add('hidden');
                 appContainer.classList.remove('hidden');
-                userEmailSpan.textContent = user.email;
+                document.getElementById('user-email').textContent = user.email;
                 
-                if (isAdmin) {
-                    roleBadge.textContent = 'Administrador';
-                    roleBadge.className = 'badge badge-admin';
-                    adminSection.classList.remove('hidden');
-                } else {
-                    roleBadge.textContent = 'Usuario Local';
-                    roleBadge.className = 'badge badge-local';
-                    adminSection.classList.add('hidden');
-                }
-
+                document.getElementById('role-badge').textContent = isAdmin ? 'Administrador' : 'Usuario Local';
+                document.getElementById('role-badge').className = `badge ${isAdmin ? 'badge-admin' : 'badge-local'}`;
+                
+                adminSection.classList.toggle('hidden', !isAdmin);
                 loadFiles();
             } else {
-                currentUser = null;
-                isAdmin = false;
                 loginContainer.classList.remove('hidden');
                 appContainer.classList.add('hidden');
                 document.getElementById('email').value = '';
@@ -535,118 +265,92 @@
             }
         });
 
-        // --- LÓGICA DE SUBIDA CON PROGRESO REAL ---
-        document.getElementById('upload-btn').addEventListener('click', async () => {
+        // --- SUBIDA CON DIAGNÓSTICO ---
+        document.getElementById('upload-btn').addEventListener('click', () => {
             const fileInput = document.getElementById('file-input');
             const file = fileInput.files[0];
             uploadError.textContent = '';
             uploadSuccess.textContent = '';
 
             if (!file) {
-                uploadError.textContent = '⚠️ Por favor, selecciona un archivo primero.';
+                uploadError.textContent = '⚠️ Selecciona un archivo primero.';
                 return;
             }
-
-            // Límite de seguridad: 50 MB para evitar cuelgues en conexiones lentas
             if (file.size > 50 * 1024 * 1024) {
-                uploadError.textContent = '❌ El archivo es demasiado grande (Máximo 50 MB).';
+                uploadError.textContent = '❌ Máximo 50 MB permitidos.';
                 return;
             }
 
-            if (!isAdmin) {
-                uploadError.textContent = '❌ No tienes permisos para subir archivos.';
-                return;
-            }
-
-            // Preparar UI de progreso
             progressContainer.style.display = 'block';
             progressText.style.display = 'block';
-            progressText.textContent = 'Iniciando subida: 0%';
+            progressText.textContent = 'Iniciando...';
             progressBar.style.width = '0%';
             fileInput.disabled = true;
             setLoading('upload-btn', true, 'Subiendo...');
 
-            try {
-                const fileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9._-]/g, '_')}`;
-                const storageRef = ref(storage, `uploads/${fileName}`);
-                
-                // Usar uploadBytesResumable para obtener progreso en tiempo real
-                currentUploadTask = uploadBytesResumable(storageRef, file);
+            const cleanName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+            const storageRef = ref(storage, `uploads/${Date.now()}_${cleanName}`);
+            
+            uploadTask = uploadBytesResumable(storageRef, file);
 
-                currentUploadTask.on('state_changed',
-                    (snapshot) => {
-                        // Cálculo del porcentaje
-                        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-                        progressBar.style.width = `${progress}%`;
-                        progressText.textContent = `Subiendo: ${progress}%`;
-                    },
-                    (error) => {
-                        // Manejo de errores de subida
-                        console.error("Error de subida:", error);
-                        resetProgressUI();
-                        
-                        if (error.code === 'storage/unauthorized') {
-                            uploadError.textContent = '❌ Error: No tienes permisos. Verifica las Reglas de Storage en Firebase.';
-                        } else {
-                            uploadError.textContent = `❌ Error al subir: ${error.message}`;
-                        }
-                    },
-                    () => {
-                        // Éxito
-                        resetProgressUI();
-                        uploadSuccess.textContent = '✅ Archivo subido correctamente.';
-                        fileInput.value = '';
-                        
-                        setTimeout(() => {
-                            uploadSuccess.textContent = '';
-                        }, 4000);
+            // Temporizador de seguridad: si en 15 segundos sigue en 0%, es problema de red/CORS
+            uploadTimeout = setTimeout(() => {
+                if (progressBar.style.width === '0%') {
+                    uploadError.textContent = '⚠️ La subida está congelada en 0%. Esto suele ser un bloqueo CORS (abrir con doble clic) o un firewall. Abre la consola del navegador (F12) para ver el error exacto.';
+                    resetProgressUI();
+                }
+            }, 15000);
 
-                        loadFiles();
+            uploadTask.on('state_changed',
+                (snapshot) => {
+                    const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                    progressBar.style.width = `${progress}%`;
+                    progressText.textContent = `Subiendo: ${progress}%`;
+                },
+                (error) => {
+                    console.error("ERROR DETALLADO DE SUBIDA:", error);
+                    resetProgressUI();
+                    if (error.code === 'storage/unauthorized') {
+                        uploadError.textContent = '❌ PERMISOS DENEGADOS. Ve a Firebase Console > Storage > Rules y asegúrate de tener la regla "allow write" configurada correctamente.';
+                    } else if (error.code === 'storage/canceled') {
+                        uploadError.textContent = '❌ Subida cancelada.';
+                    } else {
+                        uploadError.textContent = `❌ Error: ${error.message} (Código: ${error.code})`;
                     }
-                );
-            } catch (error) {
-                console.error(error);
-                resetProgressUI();
-                uploadError.textContent = `❌ Error inesperado: ${error.message}`;
-            }
+                },
+                () => {
+                    resetProgressUI();
+                    uploadSuccess.textContent = '✅ ¡Archivo subido con éxito!';
+                    fileInput.value = '';
+                    setTimeout(() => { uploadSuccess.textContent = ''; }, 4000);
+                    loadFiles();
+                }
+            );
         });
 
         async function loadFiles() {
             loadingFiles.classList.remove('hidden');
             fileList.innerHTML = '';
-
             try {
-                const listRef = ref(storage, 'uploads/');
-                const res = await listAll(listRef);
-                
+                const res = await listAll(ref(storage, 'uploads/'));
                 loadingFiles.classList.add('hidden');
-
                 if (res.items.length === 0) {
-                    fileList.innerHTML = '<li style="text-align: center; color: var(--text-light); padding: 2rem;">No hay archivos disponibles aún.</li>';
+                    fileList.innerHTML = '<li style="text-align:center; color:var(--text-light); padding:2rem;">No hay archivos.</li>';
                     return;
                 }
-
                 res.items.sort((a, b) => b.name.localeCompare(a.name));
-
                 for (const itemRef of res.items) {
                     const url = await getDownloadURL(itemRef);
-                    const fileName = itemRef.name.replace(/^\d+_/, '').replace(/_/g, ' ');
-                    
+                    const displayName = itemRef.name.replace(/^\d+_/, '').replace(/_/g, ' ');
                     const li = document.createElement('li');
                     li.className = 'file-item';
-                    
-                    const actionsHtml = isAdmin 
-                        ? `<button class="btn-danger" onclick="deleteFile('${itemRef.name}')">Eliminar</button>` 
-                        : '';
-
                     li.innerHTML = `
                         <div class="file-info">
-                            <span class="file-name" title="${fileName}">${fileName}</span>
-                            <span class="file-date">Listo para descargar</span>
+                            <span class="file-name" title="${displayName}">${displayName}</span>
                         </div>
                         <div class="file-actions">
-                            <a href="${url}" target="_blank" class="btn-download" download="${fileName}">Descargar</a>
-                            ${actionsHtml}
+                            <a href="${url}" target="_blank" class="btn-download" download="${displayName}">Descargar</a>
+                            ${isAdmin ? `<button class="btn-danger" onclick="deleteFile('${itemRef.name}')">Eliminar</button>` : ''}
                         </div>
                     `;
                     fileList.appendChild(li);
@@ -654,21 +358,17 @@
             } catch (error) {
                 console.error(error);
                 loadingFiles.classList.add('hidden');
-                fileList.innerHTML = `<li style="text-align: center; color: var(--danger); padding: 2rem;">Error al cargar archivos. Verifica tu conexión o las reglas de Firebase.</li>`;
+                fileList.innerHTML = `<li style="text-align:center; color:var(--danger); padding:2rem;">Error al cargar: ${error.message}</li>`;
             }
         }
 
         window.deleteFile = async function(fileName) {
-            if (!isAdmin) return;
-            if (!confirm(`¿Estás seguro de que deseas eliminar este archivo permanentemente?`)) return;
-
+            if (!isAdmin || !confirm('¿Eliminar permanentemente?')) return;
             try {
-                const fileRef = ref(storage, `uploads/${fileName}`);
-                await deleteObject(fileRef);
+                await deleteObject(ref(storage, `uploads/${fileName}`));
                 loadFiles();
             } catch (error) {
-                console.error(error);
-                alert(`Error al eliminar: ${error.message}`);
+                alert(`Error: ${error.message}`);
             }
         };
     </script>
